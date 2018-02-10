@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private Button boton;
+    private Button boton,boton2;
     private TextView txtView;
 
     @Override
@@ -16,11 +16,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         boton=findViewById(R.id.button);
         txtView=findViewById(R.id.textView);
+        boton2=findViewById(R.id.button2);
 
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 txtView.setText("Hola GitHub");
+            }
+        });
+
+        boton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtView.setText("Hola profe");
             }
         });
     }
