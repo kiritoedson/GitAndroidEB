@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private Button boton,boton2;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 txtView.setText("Hola GitHub");
+                Toast.makeText(MainActivity.this,"Se cambio el mensaje en el txtView",Toast.LENGTH_LONG).show();
             }
         });
 
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 txtView.setText("Hola profe");
+
             }
         });
     }
