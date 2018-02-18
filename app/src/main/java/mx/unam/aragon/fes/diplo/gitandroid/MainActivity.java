@@ -17,7 +17,7 @@ import java.net.URI;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
-    private Button boton,boton2,boton3;
+    private Button boton, boton2, boton3;
     private TextView txtView;
     private Bitmap imagenDescarga;
     private ImageView Imagen;
@@ -26,17 +26,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        boton=findViewById(R.id.button);
-        txtView=findViewById(R.id.textView);
-        boton2=findViewById(R.id.button2);
-        boton3=findViewById(R.id.button3);
-        Imagen=findViewById(R.id.imageView);
+        boton = findViewById(R.id.button);
+        txtView = findViewById(R.id.textView);
+        boton2 = findViewById(R.id.button2);
+        boton3 = findViewById(R.id.button3);
+        Imagen = findViewById(R.id.imageView);
 
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 txtView.setText("Hola GitHub");
-                Toast.makeText(MainActivity.this,"Se cambio el mensaje en el txtView",Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Se cambio el mensaje en el txtView", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -53,29 +53,28 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     new DescargarImagen().execute(new URL("https://vignette.wikia.nocookie.net/toontown/images/8/82/Toony_Toons.png/revision/latest?cb=20110313052410"));
-                }catch (MalformedURLException e){
+                } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
             }
         });
 
 
-
     }
 
-    class DescargarImagen extends AsyncTask<URL,Integer,Bitmap >{
+    class DescargarImagen extends AsyncTask<URL, Integer, Bitmap> {
 
         @Override
         protected Bitmap doInBackground(URL... urls) {
             try {
-                imagenDescarga= BitmapFactory.decodeStream(urls[0].openConnection().getInputStream());
-            }catch (Exception e){
-                Log.e("diplo","error");
+                imagenDescarga = BitmapFactory.decodeStream(urls[0].openConnection().getInputStream());
+            } catch (Exception e) {
+                Log.e("diplo", "error");
             }
             return imagenDescarga;
         }
 
-        protected void onPostExecute (Bitmap bitmap){
+        protected void onPostExecute(Bitmap bitmap) {
             Imagen.setImageBitmap(imagenDescarga);
             super.onPostExecute(bitmap);
         }
